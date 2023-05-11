@@ -1,12 +1,46 @@
 import React, { useState } from 'react';
-import Welcome from './components/Welcome';
+import About from './components/About';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+import Header from './components/Header';
+import Navigation from './components/Navigation';
+
 
 function App() {
-  // Here we declare a state boolean variable "loggedIn" and a function to update it.
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [pages] = useState([
+    {
+      name: 'about me'
+    },
+    {
+      name: 'contact'
+    },
+    {
+      name: 'projects'
+    },
+    {
+      name: 'resume'
+    },
+  ])
+  const [currentPage, setCurrentPage] = useState(pages[0]);
 
-  // We return the Welcome component and pass loggedIn and setLoggedIn as props.
-  return <Welcome loggedIn={loggedIn} setLoggedIn={setLoggedIn} />;
+  return(
+
+  <div>
+    <Header>
+      <Navigation>
+        pages={pages}
+        setCurrentPage={setCurrentPage}
+        currentPage={currentPage}
+      </Navigation>
+    </Header>
+    <main>
+
+    </main>
+    <Footer>
+
+    </Footer>
+  </div>)
 }
-
 export default App;
+
+// Tell tutor help navigate to which page
